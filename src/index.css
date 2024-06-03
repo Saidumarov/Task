@@ -13,9 +13,6 @@
 *::after,
 *::before {
   box-sizing: border-box;
-  content: "";
-  display: table;
-  clear: both;
 }
 a {
   text-decoration: none;
