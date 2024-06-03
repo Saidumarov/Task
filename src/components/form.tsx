@@ -3,6 +3,11 @@ import { Live, LiveView, Next, Password, UserSvg } from "../icon";
 const Form = () => {
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -48,13 +53,40 @@ const Form = () => {
           </div>
         </div>
         <div className="flex items-center mb-4">
-          <input
-            type="checkbox"
-            id="remember"
-            className="mr-2 w-[18px] h-[18px] outline-none border-white border-none shadow-lg rounded-full "
-          />
-          <label htmlFor="remember" className="text-gray-700">
-            Remember for 30 days
+          <label className="inline-flex items-center gap-4">
+            <input
+              type="checkbox"
+              className="hidden"
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+            />
+            <span
+              className={`w-5 h-5 border rounded-md cursor-pointer shadow-sm ${
+                isChecked
+                  ? "bg-blue-500 border-blue-500"
+                  : "bg-white border-gray-300"
+              } flex items-center justify-center`}
+            >
+              {isChecked && (
+                <svg
+                  className="w-4 h-4 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              )}
+            </span>
+            <span className="text-gray-700 cursor-pointer ">
+              Remember for 30 days
+            </span>
           </label>
         </div>
         <button
