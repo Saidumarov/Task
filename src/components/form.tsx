@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Live, LiveView, Next, Password, UserSvg } from "../icon";
+import { CheckBox, Live, LiveView, Next, Password, UserSvg } from "../icon";
 const Form = () => {
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -63,26 +63,11 @@ const Form = () => {
             <span
               className={`w-5 h-5 border rounded-md cursor-pointer shadow-sm ${
                 isChecked
-                  ? "bg-blue-500 border-blue-500"
+                  ? "bg-[#00b8d9] border-[#00b8d9]"
                   : "bg-white border-gray-300"
               } flex items-center justify-center`}
             >
-              {isChecked && (
-                <svg
-                  className="w-4 h-4 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              )}
+              {isChecked && <CheckBox />}
             </span>
             <span className="text-gray-700 cursor-pointer ">
               Remember for 30 days
